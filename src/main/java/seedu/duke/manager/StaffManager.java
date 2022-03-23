@@ -40,7 +40,11 @@ public class StaffManager extends Manager {
     /**
      * Print all the Staffs.
      */
-    public void printStaffs() {
+    public void printStaff() {
+        if (staffs.size() == 0) {
+            System.out.println("There is no staff");
+            return;
+        }
         for (int i = 0; i < staffs.size(); i++) {
             System.out.println((i + 1) + ". " + staffs.get(i));
         }

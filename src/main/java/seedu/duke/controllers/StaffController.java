@@ -6,7 +6,7 @@ import seedu.duke.loggers.MainLogger;
 
 public class StaffController extends Controller {
     private static final String[] CHOICES = {
-        "Exit Staff Menu", "Find Staff", "Add Staff", "Delete Staff"
+        "Exit Staff Menu", "Print Staff", "Find Staff", "Add Staff", "Delete Staff"
     };
     private final StaffManager staffManager;
 
@@ -32,12 +32,15 @@ public class StaffController extends Controller {
             }
             return true;
         case 1:
-            findStaff();
+            printStaff();
             break;
         case 2:
-            addStaff();
+            findStaff();
             break;
         case 3:
+            addStaff();
+            break;
+        case 4:
             deleteStaff();
             break;
         default:
@@ -46,6 +49,13 @@ public class StaffController extends Controller {
         }
         System.out.println(this);
         return false;
+    }
+
+
+
+    private void printStaff() throws OperationTerminationException {
+        MainLogger.logInfo(this, "Printing staff");
+        staffManager.printStaff();
     }
 
     /**
